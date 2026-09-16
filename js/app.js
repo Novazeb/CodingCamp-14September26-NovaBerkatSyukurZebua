@@ -40,7 +40,7 @@ const DEFAULT_CATEGORIES = [
  * }}
  */
 let state = {
-    theme:          'system',
+    theme:          'light',
     monthlyBudget:  2500000,
     selectedMonth:  'ALL',
     sortBy:         'date-desc',
@@ -132,7 +132,7 @@ function loadState() {
         const saved = JSON.parse(raw);
 
         state = {
-            theme:          saved.theme          ?? 'system',
+            theme:          (saved.theme && saved.theme !== 'system') ? saved.theme : 'light',
             monthlyBudget:  saved.monthlyBudget  ?? 2500000,
             selectedMonth:  saved.selectedMonth  ?? 'ALL',
             sortBy:         saved.sortBy         ?? 'date-desc',
@@ -174,15 +174,11 @@ function seedDefaultData() {
 // ─────────────────────────────────────────────
 
 function applyTheme() {
-    const resolved = state.theme === 'system'
-        ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-        : state.theme;
-    document.documentElement.setAttribute('data-theme', resolved);
+    document.documentElement.setAttribute('data-theme', state.theme || 'light');
 }
 
 function toggleTheme() {
-    const cycle = ['light', 'dark', 'system'];
-    state.theme = cycle[(cycle.indexOf(state.theme) + 1) % cycle.length];
+    state.theme = state.theme === 'dark' ? 'light' : 'dark';
     applyTheme();
     saveState();
     // Rebuild chart so tooltip/border colors update immediately
