@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "workspace": {
+    "name": "Expense & Budget Visualizer",
+    "type": "vanilla-web-app"
+  },
+  "agent": {
+    "defaultModel": "deepseek-v3",
+    "contextFiles": [
+      ".kiro/steering/expense-budget-visualizer/design.md",
+      ".kiro/steering/expense-budget-visualizer/requirements.md",
+      ".kiro/steering/expense-budget-visualizer/tasks.md"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    ".git",
+    "dist",
+    "build"
+  ]
+}
