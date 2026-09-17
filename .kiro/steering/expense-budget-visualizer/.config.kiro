@@ -1,21 +1,3 @@
 {
-  "specId": "expense-budget-visualizer-steering",
-  "workflowType": "fast-task",
-  "specType": "feature",
-  "name": "Expense & Budget Visualizer Steering",
-  "description": "Project constraints, design tokens, and technical guidelines for the Expense & Budget Visualizer application",
-  "version": "1.0.0",
-  "files": [
-    "design.md",
-    "requirements.md",
-    "tasks.md"
-  ],
-  "tags": [
-    "vanilla-js",
-    "fintech",
-    "budget-tracker",
-    "localstorage"
-  ],
-  "inclusion": "always",
-  "priority": 100
+  "specId": "70bee5a4-c418-402d-bdce-d4a50f71aa61", "workflowType": "requirements-first", "specType": "feature"
 }
